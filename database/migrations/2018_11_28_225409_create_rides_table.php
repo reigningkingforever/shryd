@@ -20,7 +20,7 @@ class CreateRidesTable extends Migration
             $table->string('destination');
             $table->integer('available_seats');
             $table->float('unit_cost');
-            $table->dateTime('departure');
+            $table->timestamps('departure');
             $table->string('status');
             $table->timestamps();
         });

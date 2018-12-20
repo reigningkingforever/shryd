@@ -23,37 +23,8 @@ class RideController extends Controller
         return view('admin.bookings',compact('bookings'));
     }
 
-    //user part
-    public function feeds()
-    {
-        $feeds = Ride::paginate(5);
-        dd($feeds);
-        return view('passenger.feeds',compact('feeds'));
-    }
 
-    public function ride(Ride $ride){
-        dd($ride);
-        return view('passenger.book',compact('$ride'));
-    }
-
-    public function book(Ride $ride, Request $request){
-        $booking = new Booking;
-        $booking->user()->associate(auth()->user());
-        $booking->ride()->associate($ride);
-        $booking->seats = $request->no_of_seats;
-        $booking->status = 'waiting';
-        $booking->save();
-    }
-
-    public function cancel(Ride $ride){
-        $booking = new Booking;
-        $booking->user()->associate(auth()->user());
-        $booking->ride()->associate($ride);
-        $booking->seats = $request->no_of_seats;
-        $booking->save();
-    }
-    /**
-     * Show the form for creating a new resource.
+     /* Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */

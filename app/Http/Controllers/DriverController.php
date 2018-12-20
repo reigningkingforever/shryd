@@ -32,4 +32,9 @@ class DriverController extends Controller
         return redirect()->back();
     }
 
+    public function bookResponse()
+    {
+        return ;
+    }
+
 }
